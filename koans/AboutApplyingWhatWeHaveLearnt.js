@@ -37,6 +37,12 @@ describe("About Applying What We Have Learnt", function() {
       var productsICanEat = [];
 
       /* solve using filter() & all() / any() */
+      function hasMushrooms(ingredient) {
+        return ingredient === 'mushrooms';
+      }
+
+      products.filter(pizza => (pizza.containsNuts === false) && _(pizza.ingredients).any(hasMushrooms));
+
 
       expect(productsICanEat.length).toBe(0);
   });
@@ -56,9 +62,9 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (functional)", function () {
-    var sum = FILL_ME_IN;    /* try chaining range() and reduce() */
+    var sum = _range(1000).reduce((a,e) => if (e % 3 === 0 || e % 5 === 0) { a + e });    /* try chaining range() and reduce() */    /* try chaining range() and reduce() */
 
-    expect(233168).toBe(233168);
+    expect(233168).toBe(sum);
   });
 
   /*********************************************************************************/
